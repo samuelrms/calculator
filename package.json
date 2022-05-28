@@ -1,6 +1,7 @@
 {
   "name": "aula-function-component",
   "version": "0.1.0",
+  "homepage": "https://samuelrms.github.io/calculator",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -13,6 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "git": "yarn build && ./node_modules/.bin/gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
