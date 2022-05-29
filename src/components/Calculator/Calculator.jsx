@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import DisplayCalculator from "../DisplayCalculator/DisplayCalculator";
 import Buttons from "../Buttons";
 import { CloseCalculator, OpenCalculator, TextInitCalc } from "../Mooks/Value";
-import { ContainerCalculator, MensagemCalc } from "./styled";
+import {
+  ButtonClosed,
+  ButtonMinimize,
+  ContainerCalculator,
+  ContentCalculator,
+  MensagemCalc,
+} from "./styled";
 import Button from "../Button/Button";
 
 const Calculator = () => {
@@ -87,7 +93,7 @@ const Calculator = () => {
       "/": (firstNumber, secondNumber) =>
         parseFloat(firstNumber) / parseFloat(secondNumber),
       "%": (firstNumber, secondNumber) =>
-        parseFloat(firstNumber) % parseFloat(secondNumber),
+        (parseFloat(firstNumber) / 100) * parseFloat(secondNumber),
       "*": (firstNumber, secondNumber) =>
         parseFloat(firstNumber) * parseFloat(secondNumber),
     };
@@ -154,9 +160,11 @@ const Calculator = () => {
     }
   };
 
-  const numero2 = calc.secondNumber;
-  const numero1 = calc.firstNumber;
+  const secondTerm = calc.secondNumber;
+  const firstTerm = calc.firstNumber;
   const assembleCalculator = () => setRenderCalculator(!renderCalculator);
+  const disassembleCalculator = () =>
+    clearValue(setRenderCalculator(!renderCalculator));
 
   return (
     <ContainerCalculator>
@@ -164,25 +172,32 @@ const Calculator = () => {
         <Button onClick={assembleCalculator}>{OpenCalculator}</Button>
       )}
       {renderCalculator && (
-        <div>
-          {numero1 === "" ? (
+        <ContentCalculator>
+          {renderCalculator && (
+            <>
+              <ButtonMinimize onClick={assembleCalculator}>.</ButtonMinimize>
+              <ButtonClosed
+                buttonDefaultWidth="30px"
+                onClick={disassembleCalculator}
+              >
+                X
+              </ButtonClosed>
+            </>
+          )}
+          {firstTerm === "" ? (
             <MensagemCalc>
               <p>{TextInitCalc}</p>
             </MensagemCalc>
           ) : (
             <DisplayCalculator
               result={result}
-              firstNumber={numero1}
-              secondNumber={numero2}
+              firstNumber={firstTerm}
+              secondNumber={secondTerm}
               operator={operatorCalc}
             />
           )}
-          {console.log({ numero1, operatorCalc, numero2, result })}
           <Buttons calc={Calc} />
-        </div>
-      )}
-      {renderCalculator && (
-        <Button onClick={assembleCalculator}>{CloseCalculator}</Button>
+        </ContentCalculator>
       )}
     </ContainerCalculator>
   );
