@@ -14,8 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "first-git": "yarn add --dev gh-pages",
-    "second-git": "yarn build && ./node_modules/.bin/gh-pages -d build && git push origin main",
+    "git-add": "yarn add --dev gh-pages",
+    "git": "yarn build && ./node_modules/.bin/gh-pages -d build && git push origin main",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
