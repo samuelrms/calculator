@@ -16,7 +16,12 @@ const Buttons = (props) => {
       <ContentWraper>
         <ContentTop>
           {OperatorsTop.map((operator) => (
-            <Button value={operator} key={operator} onClick={getValueClick}>
+            <Button
+              title={operator}
+              value={operator}
+              key={operator}
+              onClick={getValueClick}
+            >
               {operator}
             </Button>
           ))}

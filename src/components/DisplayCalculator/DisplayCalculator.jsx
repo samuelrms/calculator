@@ -4,19 +4,20 @@ import {
   RenderNumbers,
   RenderOperator,
   RenderResult,
+  WraperResults,
+  WraperValues,
 } from "./styled";
 
 const DisplayCalculator = (props) => {
   return (
     <Container>
-      <RenderNumbers>{props.firstNumber}</RenderNumbers>
-      <RenderOperator>{props.operator}</RenderOperator>
-      <RenderNumbers>{props.secondNumber}</RenderNumbers>
+      <WraperValues>
+        <RenderNumbers>{props.firstNumber}</RenderNumbers>
+        <RenderOperator>{props.operator}</RenderOperator>
+        <RenderNumbers>{props.secondNumber}</RenderNumbers>
+      </WraperValues>
       {typeof props.result === typeof 0 && (
-        <>
-          <RenderResult>=</RenderResult>
-          <RenderResult>{props.result}</RenderResult>
-        </>
+        <RenderResult>{props.result}</RenderResult>
       )}
     </Container>
   );

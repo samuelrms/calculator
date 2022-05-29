@@ -8,10 +8,12 @@ const Button = ({
   key,
   title,
   buttonDefaultWidth,
+  buttonDefaultBackground,
 }) => {
   return (
     <ButtonDefault
       buttonDefaultWidth={buttonDefaultWidth}
+      buttonDefaultBackground={buttonDefaultBackground}
       title={title}
       value={value}
       key={key}

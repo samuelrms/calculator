@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import DisplayCalculator from "../DisplayCalculator/DisplayCalculator";
 import Buttons from "../Buttons";
-import { CloseCalculator, OpenCalculator, TextInitCalc } from "../Mooks/Value";
 import {
+  CloseCalculator,
+  MinimizeCalculator,
+  OpenCalculator,
+  TextInitCalc,
+} from "../Mooks/Value";
+import {
+  BodyCalculator,
   ButtonClosed,
   ButtonMinimize,
   ContainerCalculator,
@@ -169,34 +175,44 @@ const Calculator = () => {
   return (
     <ContainerCalculator>
       {!renderCalculator && (
-        <Button onClick={assembleCalculator}>{OpenCalculator}</Button>
+        <Button
+          buttonDefaultBackground="#1F5243"
+          buttonDefaultWidth="80%"
+          onClick={assembleCalculator}
+        >
+          {OpenCalculator}
+        </Button>
       )}
       {renderCalculator && (
-        <ContentCalculator>
+        <ContentCalculator animation={assembleCalculator}>
           {renderCalculator && (
             <>
-              <ButtonMinimize onClick={assembleCalculator}>.</ButtonMinimize>
+              <ButtonMinimize onClick={assembleCalculator}>
+                {MinimizeCalculator}
+              </ButtonMinimize>
               <ButtonClosed
                 buttonDefaultWidth="30px"
                 onClick={disassembleCalculator}
               >
-                X
+                {CloseCalculator}
               </ButtonClosed>
             </>
           )}
-          {firstTerm === "" ? (
-            <MensagemCalc>
-              <p>{TextInitCalc}</p>
-            </MensagemCalc>
-          ) : (
-            <DisplayCalculator
-              result={result}
-              firstNumber={firstTerm}
-              secondNumber={secondTerm}
-              operator={operatorCalc}
-            />
-          )}
-          <Buttons calc={Calc} />
+          <BodyCalculator>
+            {firstTerm === "" ? (
+              <MensagemCalc>
+                <h2>{TextInitCalc}</h2>
+              </MensagemCalc>
+            ) : (
+              <DisplayCalculator
+                result={result}
+                firstNumber={firstTerm}
+                secondNumber={secondTerm}
+                operator={operatorCalc}
+              />
+            )}
+            <Buttons calc={Calc} />
+          </BodyCalculator>
         </ContentCalculator>
       )}
     </ContainerCalculator>
