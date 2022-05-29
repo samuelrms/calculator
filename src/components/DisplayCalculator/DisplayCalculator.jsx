@@ -1,13 +1,14 @@
 import React from "react";
+import { Container } from "./styled";
 
-const DisplayCalculator = ({ props }) => {
+const DisplayCalculator = (props) => {
   return (
-    <div>
-      <p>
-        {props.firstNumber} {props.operator} {props.secondNumber}
-      </p>
+    <Container>
+      <p>{props.firstNumber}</p>
+      <p>{props.operator}</p>
+      <p>{props.secondNumber}</p>
       <p>{props.result}</p>
-    </div>
+    </Container>
   );
 };
 

@@ -1,10 +1,12 @@
 import React from "react";
-import Buttons from "./components/Buttons";
+import Calculator from "./components/Calculator/Calculator";
+import { GlobalStyle } from "./components/Styles/GlobalStyles";
 
 const App = () => {
   return (
     <div>
-      <Buttons />
+      <GlobalStyle />
+      <Calculator />
     </div>
   );
 };
