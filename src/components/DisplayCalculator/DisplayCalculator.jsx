@@ -1,13 +1,23 @@
 import React from "react";
-import { Container } from "./styled";
+import {
+  Container,
+  RenderNumbers,
+  RenderOperator,
+  RenderResult,
+} from "./styled";
 
 const DisplayCalculator = (props) => {
   return (
     <Container>
-      <p>{props.firstNumber}</p>
-      <p>{props.operator}</p>
-      <p>{props.secondNumber}</p>
-      <p>{props.result}</p>
+      <RenderNumbers>{props.firstNumber}</RenderNumbers>
+      <RenderOperator>{props.operator}</RenderOperator>
+      <RenderNumbers>{props.secondNumber}</RenderNumbers>
+      {typeof props.result === typeof 0 && (
+        <>
+          <RenderResult>=</RenderResult>
+          <RenderResult>{props.result}</RenderResult>
+        </>
+      )}
     </Container>
   );
 };

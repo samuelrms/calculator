@@ -3,12 +3,24 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 80%;
   display: flex;
-  margin: 0 auto;
-  flex-direction: column;
+  margin: 20px auto 0;
+  flex-direction: row;
 `;
 
-export const ContentTop = styled.div``;
+export const ContentTop = styled.div`
+  width: 100%;
+`;
 export const ContentNumbers = styled.div`
   flex-wrap: wrap;
+  width: 100%;
 `;
-export const ContentRight = styled.div``;
+export const ContentRight = styled.div`
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const ContentWraper = styled.div`
+  width: 75%;
+`;

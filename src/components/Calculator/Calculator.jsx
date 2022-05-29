@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import DisplayCalculator from "../DisplayCalculator/DisplayCalculator";
 import Buttons from "../Buttons";
 import { CloseCalculator, OpenCalculator, TextInitCalc } from "../Mooks/Value";
-import { MensagemCalc } from "./styled";
+import { ContainerCalculator, MensagemCalc } from "./styled";
+import Button from "../Button/Button";
 
 const Calculator = () => {
   const [numberFirst, setNumberFirst] = useState("");
@@ -155,13 +156,12 @@ const Calculator = () => {
 
   const numero2 = calc.secondNumber;
   const numero1 = calc.firstNumber;
+  const assembleCalculator = () => setRenderCalculator(!renderCalculator);
 
   return (
-    <div>
+    <ContainerCalculator>
       {!renderCalculator && (
-        <button onClick={() => setRenderCalculator(!renderCalculator)}>
-          {OpenCalculator}
-        </button>
+        <Button onClick={assembleCalculator}>{OpenCalculator}</Button>
       )}
       {renderCalculator && (
         <div>
@@ -182,11 +182,9 @@ const Calculator = () => {
         </div>
       )}
       {renderCalculator && (
-        <button onClick={() => setRenderCalculator(!renderCalculator)}>
-          {CloseCalculator}
-        </button>
+        <Button onClick={assembleCalculator}>{CloseCalculator}</Button>
       )}
-    </div>
+    </ContainerCalculator>
   );
 };
 

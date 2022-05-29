@@ -5,7 +5,12 @@ export const ButtonDefault = styled.button`
   color: #fff;
   cursor: pointer;
   margin: 2px;
+  height: 40px;
   width: ${({ buttonDefaultWidth }) => buttonDefaultWidth};
+  border-radius: 5px;
+  :last-child {
+    width: ${({ title }) => title === "=" && "calc(100% / 1.5 - 4px)"};
+  }
 `;
 
 ButtonDefault.defaultProps = {
