@@ -1,5 +1,6 @@
 {
   "name": "aula-function-component",
+  "homepage": "https://samuelrms.github.io/calculator/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "git": "yarn build && ./node_modules/.bin/gh-pages -d build",
+    "first-git": "yarn add --dev gh-pages",
+    "second-git": "yarn build && ./node_modules/.bin/gh-pages -d build && git push origin main",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -36,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
